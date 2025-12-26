@@ -5,6 +5,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 import { ChevronLeft, ChevronRight, Star, ShoppingCart } from "lucide-react";
 import productsData from "@/products.json";
 
@@ -14,6 +15,8 @@ type Product = {
   price: number;
   rating: number;
   image: string;
+  description?: string;
+  category?: string;
 };
 
 export function ProductCarousel() {
@@ -56,32 +59,40 @@ export function ProductCarousel() {
             <div className="flex gap-4">
               {topProducts.map((product) => (
                 <div key={product.id} className="flex-[0_0_300px] min-w-0">
-                  <Card className="h-full">
-                    <CardHeader>
-                      <div className="relative w-full h-48 mb-4">
-                        <Image
-                          src={product.image}
-                          alt={product.name}
-                          fill
-                          className="object-cover rounded-md"
-                        />
-                      </div>
-                      <CardTitle className="text-lg text-slate-900">{product.name}</CardTitle>
-                      <CardDescription className="flex items-center gap-1 text-slate-700">
-                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                        <span>{product.rating.toFixed(1)} / 5.0</span>
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-2xl font-bold text-slate-900">${product.price.toFixed(2)}</p>
-                    </CardContent>
-                    <CardFooter>
-                      <Button className="w-full gap-2">
-                        <ShoppingCart className="h-4 w-4" />
-                        Add to Cart
-                      </Button>
-                    </CardFooter>
-                  </Card>
+                  <Link href={`/product/${product.id}`}>
+                    <Card className="h-full cursor-pointer hover:shadow-lg transition-shadow">
+                      <CardHeader>
+                        <div className="relative w-full h-48 mb-4">
+                          <Image
+                            src={product.image}
+                            alt={product.name}
+                            fill
+                            className="object-cover rounded-md"
+                          />
+                        </div>
+                        <CardTitle className="text-lg text-slate-900">{product.name}</CardTitle>
+                        <CardDescription className="flex items-center gap-1 text-slate-700">
+                          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                          <span>{product.rating.toFixed(1)} / 5.0</span>
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-2xl font-bold text-slate-900">${product.price.toFixed(2)}</p>
+                      </CardContent>
+                      <CardFooter>
+                        <Button 
+                          className="w-full gap-2" 
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                          }}
+                        >
+                          <ShoppingCart className="h-4 w-4" />
+                          Add to Cart
+                        </Button>
+                      </CardFooter>
+                    </Card>
+                  </Link>
                 </div>
               ))}
             </div>
