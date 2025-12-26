@@ -188,7 +188,7 @@ export default function OrderDetailsPage({
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <Label htmlFor="status" className="mb-2 block text-sm font-medium text-slate-900">
+                  <Label htmlFor="status" className="mb-2 block text-sm font-medium text-slate-600">
                     Change Status
                   </Label>
                   <Select
@@ -197,12 +197,12 @@ export default function OrderDetailsPage({
                       handleStatusChange(value as "completed" | "incomplete")
                     }
                   >
-                    <SelectTrigger id="status">
-                      <SelectValue />
+                    <SelectTrigger id="status" className="text-slate-600">
+                      <SelectValue  />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="text-slate-600 bg-slate-50">
                       <SelectItem value="incomplete">
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 ">
                           <XCircle className="h-4 w-4 text-yellow-600" />
                           Incomplete
                         </div>

@@ -113,20 +113,20 @@ export function OrdersTable() {
               placeholder="Search by order ID, customer name, or product..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10"
+              className="pl-10 text-slate-600"
             />
           </div>
         </div>
 
         <div>
-          <Label htmlFor="status" className="mb-2 block text-sm font-medium text-slate-900">
+          <Label htmlFor="status" className="mb-2 block text-sm font-medium text-slate-600">
             Status
           </Label>
           <Select value={statusFilter} onValueChange={setStatusFilter}>
-            <SelectTrigger id="status">
+            <SelectTrigger id="status" className="text-slate-600">
               <SelectValue placeholder="All Statuses" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="text-slate-600 bg-slate-50">
               <SelectItem value="all">All Statuses</SelectItem>
               <SelectItem value="completed">Completed</SelectItem>
               <SelectItem value="incomplete">Incomplete</SelectItem>
@@ -139,10 +139,10 @@ export function OrdersTable() {
             Date Range
           </Label>
           <Select value={dateRangeFilter} onValueChange={setDateRangeFilter}>
-            <SelectTrigger id="dateRange">
+            <SelectTrigger id="dateRange" className="text-slate-600">
               <SelectValue placeholder="All Time" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="text-slate-600 bg-slate-50">
               <SelectItem value="all">All Time</SelectItem>
               <SelectItem value="last-10-mins">Last 10 Minutes</SelectItem>
               <SelectItem value="last-hour">Last Hour</SelectItem>
@@ -217,7 +217,7 @@ export function OrdersTable() {
                   </TableCell>
                   <TableCell>
                     <Link href={`/admin/order/${order.id}`}>
-                      <Button variant="ghost" size="sm" className="gap-2">
+                      <Button variant="ghost" size="sm" className="gap-2 text-slate-600">
                         <Eye className="h-4 w-4" />
                         View
                       </Button>

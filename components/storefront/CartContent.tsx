@@ -104,7 +104,7 @@ export function CartContent() {
               </div>
             </div>
             <Link href="/checkout" className="block">
-              <Button className="w-full gap-2 text-slate-900" size="lg">
+              <Button className="w-full gap-2 text-slate-50" size="lg">
                 Proceed to Checkout
                 <ArrowRight className="h-4 w-4" />
               </Button>

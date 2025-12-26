@@ -138,14 +138,14 @@ export function ProductFilters({ products, onFilteredProductsChange }: ProductFi
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
         {/* Category Filter */}
         <div>
-          <Label htmlFor="category" className="mb-2 block text-sm font-medium text-slate-600">
+          <Label htmlFor="category" className="mb-2 block text-sm font-medium text-slate-600">  
             Category
           </Label>
           <Select value={selectedCategory} onValueChange={setSelectedCategory}>
             <SelectTrigger id="category">
               <SelectValue placeholder="All Categories" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="text-slate-600 bg-slate-50">
               <SelectItem value="all">All Categories</SelectItem>
               {categories.map((category) => (
                 <SelectItem key={category} value={category}>
@@ -165,7 +165,7 @@ export function ProductFilters({ products, onFilteredProductsChange }: ProductFi
             <SelectTrigger id="price">
               <SelectValue placeholder="All Prices" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="text-slate-600 bg-slate-50">
               <SelectItem value="all">All Prices</SelectItem>
               <SelectItem value="0-50">$0 - $50</SelectItem>
               <SelectItem value="50-100">$50 - $100</SelectItem>
@@ -187,7 +187,7 @@ export function ProductFilters({ products, onFilteredProductsChange }: ProductFi
             <SelectTrigger id="best-sellers">
               <SelectValue placeholder="All Products" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="text-slate-600 bg-slate-50">
               <SelectItem value="no">All Products</SelectItem>
               <SelectItem value="yes">Best Sellers Only</SelectItem>
             </SelectContent>
@@ -203,7 +203,7 @@ export function ProductFilters({ products, onFilteredProductsChange }: ProductFi
             <SelectTrigger id="sort">
               <SelectValue placeholder="Default" />
             </SelectTrigger>
-            <SelectContent className="text-slate-900">
+            <SelectContent className="text-slate-600 bg-slate-50">
               <SelectItem value="default">Default</SelectItem>
               <SelectItem value="price-low">Price: Low to High</SelectItem>
               <SelectItem value="price-high">Price: High to Low</SelectItem>

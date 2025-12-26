@@ -104,7 +104,7 @@ export function CheckoutForm() {
             <CardTitle className="text-2xl font-bold text-slate-900">Shipping Information</CardTitle>
           </CardHeader>
           <CardContent className="pt-6">
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-5 text-slate-600">
               <div>
                 <Label htmlFor="name" className="text-slate-900">
                   Full Name <span className="text-red-500">*</span>
@@ -222,14 +222,14 @@ export function CheckoutForm() {
                 </div>
               </div>
 
-              <div className="flex gap-4 pt-4">
+              <div className="flex gap-4 pt-4 text-slate-50">
                 <Link href="/cart" className="flex-1">
                   <Button type="button" variant="outline" className="w-full">
-                    <ArrowLeft className="h-4 w-4 mr-2" />
+                    <ArrowLeft className="h-4 w-4 mr-2 " />
                     Back to Cart
                   </Button>
                 </Link>
-                <Button type="submit" className="flex-1 text-slate-900" disabled={isSubmitting}>
+                <Button type="submit" className="flex-1" disabled={isSubmitting}>
                   {isSubmitting ? "Processing..." : "Place Order"}
                 </Button>
               </div>
