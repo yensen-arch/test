@@ -103,7 +103,7 @@ export function ProductDetails({ product }: ProductDetailsProps) {
               </Button>
             )}
             <Link href="/cart">
-              <Button size="lg" variant="outline" className="text-slate-900 h-14 text-base border-2">
+              <Button size="lg" variant="outline" className="text-slate-50 h-14 text-base border-2">
                 View Cart
               </Button>
             </Link>

@@ -23,9 +23,9 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
   }
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-slate-50">
       <Header />
-      <main className="flex-1 bg-slate-50">
+      <main className="flex-1 bg-slate-50 max-w-7xl mx-auto">
         <ProductDetails product={product} />
       </main>
       <Footer />
