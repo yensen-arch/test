@@ -121,7 +121,7 @@ export function ProductFilters({ products, onFilteredProductsChange }: ProductFi
     sortBy !== "default";
 
   return (
-    <div className="space-y-6 mb-10 text-slate-900">
+    <div className="space-y-6 mb-10 text-slate-600">
       {/* Search */}
       <div className="relative">
         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-500" />
@@ -138,7 +138,7 @@ export function ProductFilters({ products, onFilteredProductsChange }: ProductFi
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
         {/* Category Filter */}
         <div>
-          <Label htmlFor="category" className="mb-2 block text-sm font-medium text-slate-900">
+          <Label htmlFor="category" className="mb-2 block text-sm font-medium text-slate-600">
             Category
           </Label>
           <Select value={selectedCategory} onValueChange={setSelectedCategory}>
