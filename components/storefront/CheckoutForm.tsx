@@ -46,8 +46,6 @@ export function CheckoutForm() {
     if (!formData.state.trim()) newErrors.state = "State is required";
     if (!formData.zipCode.trim()) {
       newErrors.zipCode = "Zip code is required";
-    } else if (!/^\d{5}(-\d{4})?$/.test(formData.zipCode)) {
-      newErrors.zipCode = "Invalid zip code format";
     }
     if (!formData.country.trim()) newErrors.country = "Country is required";
 
@@ -231,7 +229,7 @@ export function CheckoutForm() {
                     Back to Cart
                   </Button>
                 </Link>
-                <Button type="submit" className="flex-1" disabled={isSubmitting}>
+                <Button type="submit" className="flex-1 text-slate-900" disabled={isSubmitting}>
                   {isSubmitting ? "Processing..." : "Place Order"}
                 </Button>
               </div>
