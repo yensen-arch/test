@@ -10,8 +10,8 @@ export function Header() {
   const cartCount = getCartItemCount();
 
   return (
-    <header className="border-b border-slate-200 bg-slate-50 shadow-sm">
-      <div className="container mx-auto px-6 py-5">
+    <header className="bg-slate-50 border-b border-slate-400">
+      <div className="container mx-auto px-6 py-5 max-w-7xl">
         <div className="flex items-center justify-between">
           <Link href="/" className="text-3xl font-bold text-slate-900 tracking-tight hover:opacity-80 transition-opacity">
             Storefront

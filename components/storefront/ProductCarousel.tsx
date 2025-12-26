@@ -102,7 +102,7 @@ export function ProductCarousel() {
                           </Button>
                         ) : (
                           <Button
-                            className="w-full gap-2 text-slate-900"
+                            className="w-full gap-2 "
                             onClick={(e) => {
                               e.preventDefault();
                               e.stopPropagation();
@@ -131,20 +131,20 @@ export function ProductCarousel() {
           <Button
             variant="outline"
             size="icon"
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-slate-100"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-slate-100 rounded-full"
             onClick={scrollPrev}
             disabled={prevBtnDisabled}
           >
-            <ChevronLeft className="h-4 w-4" />
+            <ChevronLeft className="h-4 w-4 text-slate-900" />
           </Button>
           <Button
             variant="outline"
             size="icon"
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-slate-100"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-slate-100 rounded-full"
             onClick={scrollNext}
             disabled={nextBtnDisabled}
           >
-            <ChevronRight className="h-4 w-4" />
+            <ChevronRight className="h-4 w-4 text-slate-900" />
           </Button>
         </div>
       </div>

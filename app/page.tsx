@@ -5,9 +5,9 @@ import { FAQ } from "@/components/storefront/FAQ";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-slate-50">
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 max-w-7xl mx-auto">
         <ProductCarousel />
         <FAQ />
       </main>

@@ -7,7 +7,7 @@ import {
 
 export function FAQ() {
   return (
-    <div className="w-full py-16 bg-white">
+    <div className="w-full py-16 bg-white rounded-lg shadow-lg">
       <div className="container mx-auto px-6">
         <div className="mb-10">
           <h2 className="text-4xl font-bold mb-3 text-slate-900 tracking-tight">Frequently Asked Questions</h2>
