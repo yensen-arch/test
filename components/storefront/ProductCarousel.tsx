@@ -48,9 +48,9 @@ export function ProductCarousel() {
   }, [emblaApi, onSelect]);
 
   return (
-    <div className="w-full py-8">
+    <div className="w-full py-8 bg-slate-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-6">Best Selling Products</h2>
+        <h2 className="text-3xl font-bold mb-6 text-slate-900">Best Selling Products</h2>
         <div className="relative">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex gap-4">
@@ -66,14 +66,14 @@ export function ProductCarousel() {
                           className="object-cover rounded-md"
                         />
                       </div>
-                      <CardTitle className="text-lg">{product.name}</CardTitle>
-                      <CardDescription className="flex items-center gap-1">
+                      <CardTitle className="text-lg text-slate-900">{product.name}</CardTitle>
+                      <CardDescription className="flex items-center gap-1 text-slate-700">
                         <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                         <span>{product.rating.toFixed(1)} / 5.0</span>
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-2xl font-bold">${product.price.toFixed(2)}</p>
+                      <p className="text-2xl font-bold text-slate-900">${product.price.toFixed(2)}</p>
                     </CardContent>
                     <CardFooter>
                       <Button className="w-full gap-2">
@@ -89,20 +89,20 @@ export function ProductCarousel() {
           <Button
             variant="outline"
             size="icon"
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-slate-100"
             onClick={scrollPrev}
             disabled={prevBtnDisabled}
           >
-            ←
+            <ChevronLeft className="h-4 w-4" />
           </Button>
           <Button
             variant="outline"
             size="icon"
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-slate-100"
             onClick={scrollNext}
             disabled={nextBtnDisabled}
           >
-            →
+            <ChevronRight className="h-4 w-4" />
           </Button>
         </div>
       </div>
