@@ -2,17 +2,17 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="border-t bg-slate-100">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="border-t border-slate-200 bg-slate-100 mt-auto">
+      <div className="container mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div>
-            <h3 className="font-semibold mb-4 text-slate-900">Storefront</h3>
-            <p className="text-sm text-slate-700">
+            <h3 className="text-xl font-bold mb-4 text-slate-900">Storefront</h3>
+            <p className="text-sm text-slate-700 leading-relaxed">
               Your one-stop shop for quality products.
             </p>
           </div>
           <div>
-            <h4 className="font-semibold mb-4 text-slate-900">Shop</h4>
+            <h4 className="text-base font-semibold mb-5 text-slate-900">Shop</h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/products" className="text-slate-700 hover:underline hover:text-slate-900">
@@ -32,8 +32,8 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold mb-4 text-slate-900">Company</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="text-base font-semibold mb-5 text-slate-900">Company</h4>
+            <ul className="space-y-3 text-sm">
               <li>
                 <Link href="/about" className="text-slate-700 hover:underline hover:text-slate-900">
                   About Us
@@ -52,8 +52,8 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold mb-4 text-slate-900">Support</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="text-base font-semibold mb-5 text-slate-900">Support</h4>
+            <ul className="space-y-3 text-sm">
               <li>
                 <Link href="/shipping" className="text-slate-700 hover:underline hover:text-slate-900">
                   Shipping Info
@@ -72,7 +72,7 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t text-center text-sm text-slate-700">
+        <div className="mt-12 pt-8 border-t border-slate-200 text-center text-sm text-slate-600">
           <p>&copy; 2024 Storefront. All rights reserved.</p>
         </div>
       </div>

@@ -121,7 +121,7 @@ export function ProductFilters({ products, onFilteredProductsChange }: ProductFi
     sortBy !== "default";
 
   return (
-    <div className="space-y-6 mb-8 text-slate-900">
+    <div className="space-y-6 mb-10 text-slate-900">
       {/* Search */}
       <div className="relative">
         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-500" />
@@ -228,7 +228,7 @@ export function ProductFilters({ products, onFilteredProductsChange }: ProductFi
       </div>
 
       {/* Results count */}
-      <div className="text-sm text-slate-700">
+      <div className="text-base font-medium text-slate-700 mb-2">
         Showing {filteredProducts.length} of {products.length} products
       </div>
     </div>

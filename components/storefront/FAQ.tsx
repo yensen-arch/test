@@ -7,10 +7,13 @@ import {
 
 export function FAQ() {
   return (
-    <div className="w-full py-8 bg-slate-50">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-6 text-slate-900">Frequently Asked Questions</h2>
-        <Accordion type="single" collapsible className="w-full">
+    <div className="w-full py-16 bg-white">
+      <div className="container mx-auto px-6">
+        <div className="mb-10">
+          <h2 className="text-4xl font-bold mb-3 text-slate-900 tracking-tight">Frequently Asked Questions</h2>
+          <p className="text-slate-600 text-lg">Find answers to common questions</p>
+        </div>
+        <Accordion type="single" collapsible className="w-full space-y-2">
           <AccordionItem value="item-1">
             <AccordionTrigger className="text-slate-900">What is your return policy?</AccordionTrigger>
             <AccordionContent className="text-slate-700">

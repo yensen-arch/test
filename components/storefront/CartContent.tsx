@@ -12,12 +12,12 @@ export function CartContent() {
 
   if (cart.length === 0) {
     return (
-      <div className="text-center py-12">
-        <ShoppingBag className="h-16 w-16 mx-auto text-slate-400 mb-4" />
-        <h2 className="text-2xl font-semibold text-slate-900 mb-2">Your cart is empty</h2>
-        <p className="text-slate-700 mb-6">Add some products to get started!</p>
+      <div className="text-center py-20">
+        <ShoppingBag className="h-20 w-20 mx-auto text-slate-400 mb-6" />
+        <h2 className="text-3xl font-bold text-slate-900 mb-3">Your cart is empty</h2>
+        <p className="text-slate-600 text-lg mb-8">Add some products to get started!</p>
         <Link href="/products">
-          <Button>Browse Products</Button>
+          <Button size="lg" className="px-8">Browse Products</Button>
         </Link>
       </div>
     );
@@ -30,39 +30,39 @@ export function CartContent() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
       {/* Cart Items */}
-      <div className="lg:col-span-2 space-y-4">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-semibold text-slate-900">
+      <div className="lg:col-span-2 space-y-5">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-bold text-slate-900">
             Cart Items ({cart.length})
           </h2>
-          <Button variant="outline" onClick={clearCart} className="gap-2">
+          <Button variant="outline" onClick={clearCart} className="gap-2" size="sm">
             <Trash2 className="h-4 w-4" />
             Clear Cart
           </Button>
         </div>
 
         {cart.map((item) => (
-          <Card key={item.productId}>
+          <Card key={item.productId} className="border-slate-200">
             <CardContent className="p-6">
               <div className="flex gap-4">
                 <Link href={`/product/${item.productId}`} className="flex-shrink-0">
-                  <div className="relative w-24 h-24">
+                  <div className="relative w-28 h-28 rounded-lg overflow-hidden">
                     <Image
                       src={item.product.image}
                       alt={item.product.name}
                       fill
-                      className="object-cover rounded-md"
+                      className="object-cover"
                     />
                   </div>
                 </Link>
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   <Link href={`/product/${item.productId}`}>
-                    <h3 className="text-lg font-semibold text-slate-900 hover:underline">
+                    <h3 className="text-lg font-semibold text-slate-900 hover:underline mb-1">
                       {item.product.name}
                     </h3>
                   </Link>
-                  <p className="text-sm text-slate-600 mt-1">{item.product.category}</p>
-                  <p className="text-xl font-bold text-slate-900 mt-2">
+                  <p className="text-sm text-slate-600 mb-3">{item.product.category}</p>
+                  <p className="text-2xl font-bold text-slate-900">
                     ${item.product.price.toFixed(2)}
                   </p>
                 </div>
@@ -82,22 +82,22 @@ export function CartContent() {
 
       {/* Cart Summary */}
       <div className="lg:col-span-1">
-        <Card className="sticky top-4">
-          <CardHeader>
-            <CardTitle className="text-slate-900">Order Summary</CardTitle>
+        <Card className="sticky top-6 border-slate-200 shadow-lg">
+          <CardHeader className="pb-4">
+            <CardTitle className="text-xl font-bold text-slate-900">Order Summary</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-2">
-              <div className="flex justify-between text-slate-700">
+          <CardContent className="space-y-6">
+            <div className="space-y-3">
+              <div className="flex justify-between text-slate-700 text-base">
                 <span>Subtotal</span>
-                <span>${subtotal.toFixed(2)}</span>
+                <span className="font-medium">${subtotal.toFixed(2)}</span>
               </div>
-              <div className="flex justify-between text-slate-700">
+              <div className="flex justify-between text-slate-700 text-base">
                 <span>Shipping</span>
-                <span>${shipping.toFixed(2)}</span>
+                <span className="font-medium">${shipping.toFixed(2)}</span>
               </div>
-              <div className="border-t pt-2 mt-2">
-                <div className="flex justify-between text-lg font-bold text-slate-900">
+              <div className="border-t border-slate-200 pt-4 mt-4">
+                <div className="flex justify-between text-xl font-bold text-slate-900">
                   <span>Total</span>
                   <span>${total.toFixed(2)}</span>
                 </div>

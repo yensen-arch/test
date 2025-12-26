@@ -86,10 +86,10 @@ export function CheckoutForm() {
 
   if (cart.length === 0) {
     return (
-      <div className="text-center py-12">
-        <p className="text-lg text-slate-700 mb-4">Your cart is empty!</p>
+      <div className="text-center py-20">
+        <p className="text-xl text-slate-700 mb-6">Your cart is empty!</p>
         <Link href="/products">
-          <Button>Browse Products</Button>
+          <Button size="lg" className="px-8">Browse Products</Button>
         </Link>
       </div>
     );
@@ -99,12 +99,12 @@ export function CheckoutForm() {
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
       {/* Shipping Form */}
       <div className="lg:col-span-2">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-slate-900">Shipping Information</CardTitle>
+        <Card className="border-slate-200 shadow-lg">
+          <CardHeader className="pb-4">
+            <CardTitle className="text-2xl font-bold text-slate-900">Shipping Information</CardTitle>
           </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
+          <CardContent className="pt-6">
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <Label htmlFor="name" className="text-slate-900">
                   Full Name <span className="text-red-500">*</span>
@@ -240,11 +240,11 @@ export function CheckoutForm() {
 
       {/* Order Summary */}
       <div className="lg:col-span-1">
-        <Card className="sticky top-4">
-          <CardHeader>
-            <CardTitle className="text-slate-900">Order Summary</CardTitle>
+        <Card className="sticky top-6 border-slate-200 shadow-lg">
+          <CardHeader className="pb-4">
+            <CardTitle className="text-xl font-bold text-slate-900">Order Summary</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4">
+          <CardContent className="space-y-6">
             <div className="space-y-3">
               {cart.map((item) => (
                 <div key={item.productId} className="flex gap-3">

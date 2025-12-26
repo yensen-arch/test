@@ -54,18 +54,21 @@ export function ProductCarousel() {
   }, [emblaApi, onSelect]);
 
   return (
-    <div className="w-full py-8 bg-slate-50">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-6 text-slate-900">Best Selling Products</h2>
+    <div className="w-full py-16 bg-slate-50">
+      <div className="container mx-auto px-6">
+        <div className="mb-10">
+          <h2 className="text-4xl font-bold mb-3 text-slate-900 tracking-tight">Best Selling Products</h2>
+          <p className="text-slate-600 text-lg">Discover our most popular items</p>
+        </div>
         <div className="relative">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex gap-4">
               {topProducts.map((product) => (
                 <div key={product.id} className="flex-[0_0_300px] min-w-0">
                   <Link href={`/product/${product.id}`}>
-                    <Card className="h-full cursor-pointer hover:shadow-lg transition-shadow">
-                      <CardHeader>
-                        <div className="relative w-full h-48 mb-4">
+                    <Card className="h-full cursor-pointer hover:shadow-xl transition-all duration-300 border-slate-200">
+                      <CardHeader className="p-5">
+                        <div className="relative w-full h-56 mb-5 rounded-lg overflow-hidden">
                           <Image
                             src={product.image}
                             alt={product.name}
@@ -73,16 +76,17 @@ export function ProductCarousel() {
                             className="object-cover rounded-md"
                           />
                         </div>
-                        <CardTitle className="text-lg text-slate-900">{product.name}</CardTitle>
-                        <CardDescription className="flex items-center gap-1 text-slate-700">
+                        <CardTitle className="text-lg font-semibold text-slate-900 mb-2 line-clamp-2">{product.name}</CardTitle>
+                        <CardDescription className="flex items-center gap-1.5 text-slate-600">
                           <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                          <span>{product.rating.toFixed(1)} / 5.0</span>
+                          <span className="font-medium">{product.rating.toFixed(1)}</span>
+                          <span className="text-slate-400">/ 5.0</span>
                         </CardDescription>
                       </CardHeader>
-                      <CardContent>
+                      <CardContent className="px-5 pb-3">
                         <p className="text-2xl font-bold text-slate-900">${product.price.toFixed(2)}</p>
                       </CardContent>
-                      <CardFooter>
+                      <CardFooter className="px-5 pb-5">
                         {cart.some((item) => item.productId === product.id) ||
                         addedProducts.has(product.id) ? (
                           <Button

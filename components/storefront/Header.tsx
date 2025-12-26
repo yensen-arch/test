@@ -10,21 +10,21 @@ export function Header() {
   const cartCount = getCartItemCount();
 
   return (
-    <header className="border-b bg-slate-50">
-      <div className="container mx-auto px-4 py-4">
+    <header className="border-b border-slate-200 bg-slate-50 shadow-sm">
+      <div className="container mx-auto px-6 py-5">
         <div className="flex items-center justify-between">
-          <Link href="/" className="text-2xl font-bold text-slate-900">
+          <Link href="/" className="text-3xl font-bold text-slate-900 tracking-tight hover:opacity-80 transition-opacity">
             Storefront
           </Link>
-          <nav className="hidden md:flex items-center gap-6">
-            <Link href="/products" className="text-sm font-medium text-slate-800 hover:underline">
+          <nav className="hidden md:flex items-center gap-8">
+            <Link href="/products" className="text-sm font-medium text-slate-800 hover:text-slate-900 hover:underline transition-colors">
               Products
             </Link>
-            <Link href="/categories" className="text-sm font-medium text-slate-800 hover:underline">
+            <Link href="/categories" className="text-sm font-medium text-slate-800 hover:text-slate-900 hover:underline transition-colors">
               Categories
             </Link>
           </nav>
-          <div className="flex items-center gap-4 text-slate-800">
+          <div className="flex items-center gap-3 text-slate-800">
             <Link href="/cart">
               <Button variant="ghost" size="sm" className="gap-2">
                 <ShoppingCart className="h-4 w-4" />
