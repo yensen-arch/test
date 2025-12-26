@@ -6,8 +6,9 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight, Star, ShoppingCart } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star, ShoppingCart, Check } from "lucide-react";
 import productsData from "@/products.json";
+import { useCart } from "@/contexts/CartContext";
 
 type Product = {
   id: string;
@@ -20,9 +21,11 @@ type Product = {
 };
 
 export function ProductCarousel() {
+  const { addToCart, cart } = useCart();
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(true);
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
+  const [addedProducts, setAddedProducts] = useState<Set<string>>(new Set());
 
   // Get top rated products (sorted by rating, highest first)
   const topProducts: Product[] = [...productsData]
@@ -80,16 +83,40 @@ export function ProductCarousel() {
                         <p className="text-2xl font-bold text-slate-900">${product.price.toFixed(2)}</p>
                       </CardContent>
                       <CardFooter>
-                        <Button 
-                          className="w-full gap-2" 
-                          onClick={(e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                          }}
-                        >
-                          <ShoppingCart className="h-4 w-4" />
-                          Add to Cart
-                        </Button>
+                        {cart.some((item) => item.productId === product.id) ||
+                        addedProducts.has(product.id) ? (
+                          <Button
+                            className="w-full gap-2 text-slate-900"
+                            disabled
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                            }}
+                          >
+                            <Check className="h-4 w-4" />
+                            In Cart
+                          </Button>
+                        ) : (
+                          <Button
+                            className="w-full gap-2 text-slate-900"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              addToCart(product.id);
+                              setAddedProducts((prev) => new Set(prev).add(product.id));
+                              setTimeout(() => {
+                                setAddedProducts((prev) => {
+                                  const newSet = new Set(prev);
+                                  newSet.delete(product.id);
+                                  return newSet;
+                                });
+                              }, 2000);
+                            }}
+                          >
+                            <ShoppingCart className="h-4 w-4" />
+                            Add to Cart
+                          </Button>
+                        )}
                       </CardFooter>
                     </Card>
                   </Link>

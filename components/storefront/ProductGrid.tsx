@@ -4,7 +4,9 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import { Star, ShoppingCart } from "lucide-react";
+import { Star, ShoppingCart, Check } from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
+import { useState } from "react";
 
 type Product = {
   id: string;
@@ -21,6 +23,9 @@ type ProductGridProps = {
 };
 
 export function ProductGrid({ products }: ProductGridProps) {
+  const { addToCart, cart } = useCart();
+  const [addedProducts, setAddedProducts] = useState<Set<string>>(new Set());
+
   if (products.length === 0) {
     return (
       <div className="text-center py-12">
@@ -61,16 +66,40 @@ export function ProductGrid({ products }: ProductGridProps) {
               <p className="text-2xl font-bold text-slate-900">${product.price.toFixed(2)}</p>
             </CardContent>
             <CardFooter>
-              <Button 
-                className="w-full gap-2" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                }}
-              >
-                <ShoppingCart className="h-4 w-4" />
-                Add to Cart
-              </Button>
+              {cart.some((item) => item.productId === product.id) ||
+              addedProducts.has(product.id) ? (
+                <Button
+                  className="w-full gap-2 text-slate-900"
+                  disabled
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                  }}
+                >
+                  <Check className="h-4 w-4" />
+                  In Cart
+                </Button>
+              ) : (
+                <Button
+                  className="w-full gap-2 text-slate-900"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    addToCart(product.id);
+                    setAddedProducts((prev) => new Set(prev).add(product.id));
+                    setTimeout(() => {
+                      setAddedProducts((prev) => {
+                        const newSet = new Set(prev);
+                        newSet.delete(product.id);
+                        return newSet;
+                      });
+                    }, 2000);
+                  }}
+                >
+                  <ShoppingCart className="h-4 w-4" />
+                  Add to Cart
+                </Button>
+              )}
             </CardFooter>
           </Card>
         </Link>

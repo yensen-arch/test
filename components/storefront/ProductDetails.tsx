@@ -3,8 +3,10 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, ShoppingCart, ArrowLeft } from "lucide-react";
+import { Star, ShoppingCart, ArrowLeft, Check } from "lucide-react";
 import Link from "next/link";
+import { useCart } from "@/contexts/CartContext";
+import { useState } from "react";
 
 type Product = {
   id: string;
@@ -21,6 +23,16 @@ type ProductDetailsProps = {
 };
 
 export function ProductDetails({ product }: ProductDetailsProps) {
+  const { addToCart, cart } = useCart();
+  const [addedToCart, setAddedToCart] = useState(false);
+  const isInCart = cart.some((item) => item.productId === product.id);
+
+  const handleAddToCart = () => {
+    addToCart(product.id);
+    setAddedToCart(true);
+    setTimeout(() => setAddedToCart(false), 2000);
+  };
+
   return (
     <div className="container mx-auto px-4 py-8">
       <Link
@@ -69,11 +81,32 @@ export function ProductDetails({ product }: ProductDetailsProps) {
             </CardContent>
           </Card>
 
-          <div className="flex gap-4">
-            <Button size="lg" className="flex-1 gap-2">
-              <ShoppingCart className="h-5 w-5" />
-              Add to Cart
-            </Button>
+          <div className="flex gap-4 text-slate-900">
+            {isInCart ? (
+              <Button size="lg" className="flex-1 gap-2" disabled>
+                <Check className="h-5 w-5" />
+                Already in Cart
+              </Button>
+            ) : (
+              <Button size="lg" className="flex-1 gap-2" onClick={handleAddToCart}>
+                {addedToCart ? (
+                  <>
+                    <Check className="h-5 w-5" />
+                    Added to Cart!
+                  </>
+                ) : (
+                  <>
+                    <ShoppingCart className="h-5 w-5" />
+                    Add to Cart
+                  </>
+                )}
+              </Button>
+            )}
+            <Link href="/cart">
+              <Button size="lg" variant="outline" className="text-slate-900">
+                View Cart
+              </Button>
+            </Link>
           </div>
 
           <div className="border-t pt-6">
