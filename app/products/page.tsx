@@ -21,10 +21,10 @@ export default function ProductsPage() {
   const [filteredProducts, setFilteredProducts] = useState<Product[]>(productsData as Product[]);
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-slate-50">
       <Header />
       <main className="flex-1 bg-slate-50">
-        <div className="container mx-auto px-6 py-12">
+        <div className="container mx-auto px-6 py-12 max-w-7xl mx-auto">
           <div className="mb-10">
             <h1 className="text-5xl font-bold mb-3 text-slate-900 tracking-tight">All Products</h1>
             <p className="text-slate-600 text-lg">Browse our complete collection</p>

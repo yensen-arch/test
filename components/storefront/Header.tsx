@@ -20,9 +20,6 @@ export function Header() {
             <Link href="/products" className="text-sm font-medium text-slate-800 hover:text-slate-900 hover:underline transition-colors">
               Products
             </Link>
-            <Link href="/categories" className="text-sm font-medium text-slate-800 hover:text-slate-900 hover:underline transition-colors">
-              Categories
-            </Link>
           </nav>
           <div className="flex items-center gap-3 text-slate-800">
             <Link href="/cart">

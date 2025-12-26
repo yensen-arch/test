@@ -81,7 +81,7 @@ export function ProductGrid({ products }: ProductGridProps) {
                 </Button>
               ) : (
                 <Button
-                  className="w-full gap-2 text-slate-900"
+                  className="w-full gap-2 "
                   onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
